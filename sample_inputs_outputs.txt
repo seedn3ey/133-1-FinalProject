@@ -48,17 +48,36 @@ SUMMARY:
 3. EDGE CASE VERIFICATION SUMMARY
 --------------------------------------------------------------------------------
 
+TC1: Weight vs. Priority Trade-off (W=50kg)
+  -> STATUS: PASS (Optimal selection found)
+
 TC2: Oversized Bounds (W=15kg)
   -> STATUS: PASS (Payload: 0kg | Score: 0)
 
 TC3: Zero Capacity (W=0kg)
   -> STATUS: PASS (Payload: 0kg | Score: 0)
 
-TC5: Abundant Capacity (W=100kg)
-  -> STATUS: PASS (All items selected | Score: 175)
+TC4: Tie-breaking during Backtracking (W=10kg)
+  -> STATUS: PASS (Correct item selection)
 
-TC6: Empty Inventory (n=0)
-  -> STATUS: PASS (Payload: 0kg | Score: 0)
+--------------------------------------------------------------------------------
+4. COMPARATIVE SIMULATION: VARYING PARAMETERS
+--------------------------------------------------------------------------------
+
+[SCENARIO A: HIGH-CAPACITY RELIEF TRUCK (W=100kg)]
+  > Result: Algorithm utilizes full warehouse capacity.
+  > Payload: All items selected.
+  > Total Priority: 175 pts
+
+[SCENARIO B: EMERGENCY MINIMALIST (W=10kg)]
+  > Result: Strict optimization.
+  > Manifest: Medical Kit (5kg), Hygiene Pack (5kg)
+  > Total Priority: 35 pts
+
+[SCENARIO C: INSUFFICIENT CARGO (W=2kg)]
+  > Result: No items meet constraints.
+  > Payload: Empty
+  > Total Priority: 0 pts
 
 ================================================================================
 LOGISTICS MODULE: COMPUTATION COMPLETE.
